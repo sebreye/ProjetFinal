@@ -1,0 +1,107 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        <!-- Links of CSS files -->
+        <link rel="stylesheet" href={% static "assets/css/bootstrap.rtl.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/animate.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/boxicons.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/flaticon.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/magnific-popup.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/nice-select.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/slick.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/owl.carousel.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/meanmenu.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/rangeSlider.min.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/style.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/dark.css" %}>
+        <link rel="stylesheet" href={% static "assets/css/responsive.css" %}>
+
+
+        <title>Xton - eCommerce HTML Template</title>
+
+        <link rel="icon" type="image/png" href="https://i.pinimg.com/originals/01/6e/8e/016e8ed3bdb4d440231cab083f951d75.jpg">
+    </head>
+<body>
+    <header>
+        <!-- Start Navbar Area -->
+<div class="navbar-area">
+    <div class="xton-responsive-nav">
+        <div class="container">
+            <div class="xton-responsive-menu">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://th.bing.com/th/id/OIP.w18Olcpqg97fpln3BormlQHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"  class="main-logo" alt="logo">
+                        <img src="https://th.bing.com/th/id/OIP.w18Olcpqg97fpln3BormlQHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="white-logo" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="xton-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href={% url 'backoffice' %}>
+                    <img src="https://th.bing.com/th/id/OIP.w18Olcpqg97fpln3BormlQHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="main-logo" alt="logo" width='100px' >
+                    <img src="https://i.pinimg.com/originals/01/6e/8e/016e8ed3bdb4d440231cab083f951d75.jpg" class="white-logo" alt="logo" width='100px' >
+                </a>
+
+                <div class="collapse navbar-collapse mean-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href={% url 'back-users' %} class="nav-link">users</a>
+                        </li>
+
+                        <li class="nav-item megamenu"><a href={% url 'back-products' %} class="nav-link">Products</a>
+                        </li>
+
+                        <li class="nav-item megamenu"><a href={% url 'contact' %} class="nav-link">Contact</a>
+                            
+                        </li>
+                        <li class="nav-item"><a href={% url 'back-blog' %} class="nav-link">Blog</a>
+                        </li>
+                    </ul>
+
+                    <div class="others-option">
+                        <div class="option-item">
+                            <div class="search-btn-box">
+                                <i class="search-btn bx bx-search-alt"></i>
+                            </div>
+                        </div>
+
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingCartModal"><i class='bx bx-shopping-bag'></i><span>0</span></a>
+                            </div>
+                        </div>
+
+                        <div class="option-item">
+                            <div class="burger-menu" data-bs-toggle="modal" data-bs-target="#sidebarModal">
+                                <span class="top-bar"></span>
+                                <span class="middle-bar"></span>
+                                <span class="bottom-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar Area -->
+    </header>
+    <main>
+        {% block backoffice %}
+        welcome to the back-office
+        {% endblock backoffice %}
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'projetfinal/backend/backoffice.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block backoffice %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Date</th>
+        <th scope="col">Author Name</th>
+        <th scope="col">Author Job</th>
+        <th scope="col">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in allblogs %}
+        <tr>
+          <th scope="row">{{ post.id }}</th>
+          <td class="pointer">{{ post.title }}</td>
+          <td><img src="{{ post.image }}" alt="Post Image" width="100" height="100"></td>
+          <td>{{ post.date }}</td>
+          <td>{{ post.name }}</td>
+          <td>{{ post.job }}</td>
+          <td>{{ post.catblog.name }}</td>
+          <form action="/backoffice/back-users/destroy/{{post.id}}" method='POST'>
+            {% csrf_token %}
+            <td><button type="button" class="btn btn-primary"><a href={% url 'edit-blog' post.id %}>edit</a></button></td>
+            <td><button type="submit" class="btn btn-danger">X</button></td>
+        </form>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary"><a href={% url 'create-blog' %}>create blog</a></button>
+{% endblock backoffice %}

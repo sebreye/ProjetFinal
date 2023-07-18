@@ -1,0 +1,10 @@
+{% extends 'projetfinal/backend/backoffice.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block backoffice %}
+<form method='POST' class='box_about'>
+    {% csrf_token %}
+    {{ form }}
+<button type='submit'>update</button>
+</form>
+{% endblock backoffice %}

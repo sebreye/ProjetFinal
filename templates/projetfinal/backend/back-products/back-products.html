@@ -1,0 +1,69 @@
+{% extends 'projetfinal/backend/backoffice.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block backoffice %}
+<h2>Category</h2>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <th scope="row">{{ category.id }}</th>
+          <td>{{ category.name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<br>
+<br>
+<h2>Products</h2>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Stock 38</th>
+        <th scope="col">Stock 39</th>
+        <th scope="col">Stock 40</th>
+        <th scope="col">Stock 41</th>
+        <th scope="col">Stock 42</th>
+        <th scope="col">Stock 43</th>
+        <th scope="col">Stock 44</th>
+        <th scope="col">Stock 45</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in allproducts %}
+        <tr>
+          <th scope="row">{{ product.id }}</th>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.category.name }}</td>
+          <td>{{ product.get_discount_display }}</td>
+          <td>{{ product.stock38 }}</td>
+          <td>{{ product.stock39 }}</td>
+          <td>{{ product.stock40 }}</td>
+          <td>{{ product.stock41 }}</td>
+          <td>{{ product.stock42 }}</td>
+          <td>{{ product.stock43 }}</td>
+          <td>{{ product.stock44 }}</td>
+          <td>{{ product.stock45 }}</td>
+          <form action="/backoffice/back-products/destroy/{{product.id}}" method='POST'>
+            {% csrf_token %}
+            <td><button type="button" class="btn btn-primary"><a href={% url 'edit-product' product.id %}>edit</a></button></td>
+            <td><button type="submit" class="btn btn-danger">X</button></td>
+        </form>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary"><a href={% url 'create-product' %}>create blog</a></button>
+{% endblock backoffice %}
